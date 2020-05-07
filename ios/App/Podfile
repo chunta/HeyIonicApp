@@ -11,7 +11,6 @@ def capacitor_pods
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
   pod 'Heyaiquaionicplugin', :path => '../../node_modules/heyaiquaionicplugin'
-  pod 'Heyheyplugin', :path => '../../node_modules/heyheyplugin'
   # Do not delete
 end
 
