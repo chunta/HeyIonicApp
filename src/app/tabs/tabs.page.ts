@@ -15,7 +15,7 @@ import {
 const { PushNotifications } = Plugins;
 
 declare var Capacitor;
-const { HeyAiquaIonicPlugin } = Capacitor.Plugins;
+const { AppierPlugin } = Capacitor.Plugins;
 
 @Component({
   selector: 'app-tabs',
@@ -26,15 +26,16 @@ export class TabsPage {
 
   constructor() {
 
-    console.log(HeyAiquaIonicPlugin);
-    HeyAiquaIonicPlugin.echo({value:"9cce3dd2bb98c0dad844"});
-    HeyAiquaIonicPlugin.start({appid:"9cce3dd2bb98c0dad844"});
-    HeyAiquaIonicPlugin.log({name:"im event."});
+    console.log(AppierPlugin);
+    AppierPlugin.configure({appId:"9cce3dd2bb98c0dad844",
+    appGroup:"group.com.appier.AIQUA.notification", isDev: true});
+
 
     //
     // Request permission to use push notifications
         // iOS will prompt user and return if they granted permission or not
         // Android will just grant without prompting
+        /*
         PushNotifications.requestPermission().then( result => {
           if (result.granted) {
             // Register with Apple / Google to receive push via APNS/FCM
@@ -46,9 +47,10 @@ export class TabsPage {
 
         PushNotifications.addListener('registration',
           (token: PushNotificationToken) => {
-            alert('Push registration success, token: ' + token.value);
-            HeyAiquaIonicPlugin.log({name: token.value});
-            HeyAiquaIonicPlugin.setToken({token: token.value});
+            // alert('Push registration success, token: ' + token.value);
+            AppierPlugin.logEvent({eventName:'Push registration success, token: ' + token.value});
+            // AppierPlugin.logEvent({eventName: token.value});
+            // AppierPluginPlugin.setToken({token: token.value});
           }
         );
 
@@ -69,6 +71,7 @@ export class TabsPage {
             alert('Push action performed: ' + JSON.stringify(notification));
           }
         );
+        */
     //
 
   }

@@ -10,11 +10,19 @@ def capacitor_pods
   # Automatic Capacitor Pod dependencies, do not delete
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
-  pod 'Heyaiquaionicplugin', :path => '../../node_modules/heyaiquaionicplugin'
+  pod 'AppierIonic', :path => '../../node_modules/appier-ionic'
   # Do not delete
 end
 
 target 'App' do
   capacitor_pods
   # Add your Pods here
+end
+
+target 'ServiceExtension' do
+  pod 'AppierFramework'
+end
+
+target 'ContentExtension' do
+  pod 'AppierFramework'
 end
